@@ -1,0 +1,1390 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>大赛每日在线爆料平台_赛事资讯品牌|每天更新的比赛爆料现场</title>
+<meta name="description" content="大赛每日在线爆料平台官方网站，专注各类大赛的每日爆料、赛程追踪、选手动态与幕后故事，为赛事爱好者与创作者提供值得信赖的内容生态。">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='14' fill='%23e0453a'/%3E%3Cpath d='M26 18l22 14-22 14z' fill='%23fff'/%3E%3C/svg%3E">
+<style>
+:root{
+  --daishi-ink:#15161a;
+  --daishi-ink-2:#2a2c33;
+  --daishi-red:#e0453a;
+  --daishi-red-deep:#b62f26;
+  --daishi-paper:#f4f3ef;
+  --daishi-white:#ffffff;
+  --daishi-line:#d9d7cf;
+  --daishi-grey:#6c6e75;
+  --daishi-amber:#f2b52e;
+  --daishi-radius:14px;
+  --daishi-sticky:118px;
+}
+*{box-sizing:border-box;}
+html{scroll-behavior:smooth;scroll-padding-top:var(--daishi-sticky);}
+body{
+  margin:0;
+  font-family:"PingFang SC","Hiragino Sans GB","Microsoft YaHei",system-ui,-apple-system,"Segoe UI",sans-serif;
+  background:var(--daishi-paper);
+  color:var(--daishi-ink);
+  line-height:1.75;
+  -webkit-font-smoothing:antialiased;
+}
+img{max-width:100%;display:block;}
+a{color:inherit;text-decoration:none;}
+button{font-family:inherit;cursor:pointer;}
+h1,h2,h3,h4{margin:0;line-height:1.3;font-weight:800;letter-spacing:.01em;}
+p{margin:0 0 1em;}
+ul{margin:0;padding:0;list-style:none;}
+
+.daishi-wrap{width:min(1180px,calc(100% - 40px));margin:0 auto;}
+
+/* ============ 公告条 + 吸顶页头 ============ */
+.daishi-sticky-zone{position:sticky;top:0;z-index:80;}
+.daishi-bulletin{
+  background:var(--daishi-ink);
+  color:#f0efe9;
+  font-size:13px;
+  letter-spacing:.02em;
+}
+.daishi-bulletin .daishi-wrap{
+  display:flex;align-items:center;gap:14px;
+  min-height:38px;padding:6px 0;
+  overflow:hidden;
+}
+.daishi-bulletin-tag{
+  flex:none;background:var(--daishi-red);color:#fff;
+  font-size:11px;font-weight:700;padding:2px 8px;border-radius:4px;
+  letter-spacing:.08em;
+}
+.daishi-bulletin-track{flex:1;overflow:hidden;white-space:nowrap;}
+.daishi-bulletin-list{display:inline-flex;gap:36px;animation:daishi-marquee 26s linear infinite;}
+.daishi-bulletin-list li{white-space:nowrap;opacity:.92;}
+.daishi-bulletin-list li b{color:var(--daishi-amber);font-weight:700;}
+@keyframes daishi-marquee{
+  0%{transform:translateX(0);}
+  100%{transform:translateX(-50%);}
+}
+.daishi-header{
+  background:rgba(244,243,239,.96);
+  backdrop-filter:blur(10px);
+  border-bottom:1px solid var(--daishi-line);
+}
+.daishi-header .daishi-wrap{
+  display:flex;align-items:center;gap:26px;
+  min-height:78px;
+}
+.daishi-logo{display:flex;align-items:center;gap:11px;flex:none;}
+.daishi-logo-mark{
+  width:42px;height:42px;border-radius:11px;
+  background:var(--daishi-red);
+  display:grid;place-items:center;flex:none;
+  box-shadow:0 6px 14px rgba(224,69,58,.28);
+}
+.daishi-logo-mark svg{width:20px;height:20px;}
+.daishi-logo-text{display:flex;flex-direction:column;line-height:1.15;}
+.daishi-logo-text strong{font-size:17px;letter-spacing:.02em;}
+.daishi-logo-text span{font-size:11px;color:var(--daishi-grey);letter-spacing:.16em;}
+.daishi-nav{display:flex;gap:2px;flex:1;flex-wrap:wrap;}
+.daishi-nav a{
+  font-size:14.5px;font-weight:600;color:var(--daishi-ink-2);
+  padding:8px 12px;border-radius:8px;transition:.2s;
+}
+.daishi-nav a:hover{background:#e8e6de;color:var(--daishi-red-deep);}
+.daishi-header-tools{display:flex;align-items:center;gap:10px;flex:none;}
+.daishi-search{
+  display:flex;align-items:center;gap:6px;
+  background:#fff;border:1px solid var(--daishi-line);
+  border-radius:999px;padding:5px 6px 5px 14px;
+  transition:.25s;
+}
+.daishi-search:focus-within{border-color:var(--daishi-red);box-shadow:0 0 0 3px rgba(224,69,58,.12);}
+.daishi-search input{
+  border:0;outline:0;background:transparent;font-size:13.5px;
+  width:150px;color:var(--daishi-ink);
+}
+.daishi-search button{
+  border:0;background:var(--daishi-ink);color:#fff;border-radius:999px;
+  font-size:12.5px;padding:6px 14px;font-weight:700;transition:.2s;
+}
+.daishi-search button:hover{background:var(--daishi-red);}
+.daishi-burger{
+  display:none;border:1px solid var(--daishi-line);background:#fff;
+  width:42px;height:38px;border-radius:9px;
+  align-items:center;justify-content:center;flex-direction:column;gap:4px;
+}
+.daishi-burger span{display:block;width:18px;height:2px;background:var(--daishi-ink);border-radius:2px;transition:.25s;}
+.daishi-burger.is-open span:nth-child(1){transform:translateY(6px) rotate(45deg);}
+.daishi-burger.is-open span:nth-child(2){opacity:0;}
+.daishi-burger.is-open span:nth-child(3){transform:translateY(-6px) rotate(-45deg);}
+.daishi-search-feedback{
+  position:fixed;left:50%;top:130px;transform:translate(-50%,-12px);
+  background:var(--daishi-ink);color:#fff;font-size:13.5px;
+  padding:10px 20px;border-radius:999px;opacity:0;pointer-events:none;
+  transition:.28s;z-index:120;box-shadow:0 12px 30px rgba(0,0,0,.25);
+}
+.daishi-search-feedback.is-show{opacity:1;transform:translate(-50%,0);}
+
+/* ============ 首屏 ============ */
+.daishi-hero{padding:44px 0 20px;}
+.daishi-hero-grid{
+  display:grid;grid-template-columns:1.05fr .95fr;gap:44px;align-items:center;
+}
+.daishi-hero-eyebrow{
+  display:inline-flex;align-items:center;gap:8px;
+  font-size:12.5px;font-weight:700;letter-spacing:.14em;
+  color:var(--daishi-red-deep);margin-bottom:16px;
+}
+.daishi-hero-eyebrow::before{content:"";width:26px;height:2px;background:var(--daishi-red);}
+.daishi-hero h1{
+  font-size:clamp(34px,5vw,58px);
+  letter-spacing:-.02em;line-height:1.08;
+  margin-bottom:8px;
+}
+.daishi-hero h1 em{
+  font-style:normal;color:var(--daishi-red);
+  display:inline-block;
+}
+.daishi-hero-sub{
+  font-size:clamp(16px,1.6vw,20px);font-weight:700;color:var(--daishi-ink-2);
+  margin-bottom:18px;
+}
+.daishi-hero-desc{color:#4a4c53;font-size:15px;max-width:56ch;}
+.daishi-hero-actions{display:flex;flex-wrap:wrap;gap:12px;margin:24px 0 28px;}
+.daishi-btn{
+  border:0;border-radius:10px;font-weight:700;font-size:14.5px;
+  padding:12px 24px;transition:.22s;display:inline-flex;align-items:center;gap:8px;
+}
+.daishi-btn-primary{background:var(--daishi-red);color:#fff;box-shadow:0 8px 20px rgba(224,69,58,.3);}
+.daishi-btn-primary:hover{background:var(--daishi-red-deep);transform:translateY(-2px);}
+.daishi-btn-ghost{background:transparent;color:var(--daishi-ink);border:1.5px solid var(--daishi-ink);}
+.daishi-btn-ghost:hover{background:var(--daishi-ink);color:#fff;}
+.daishi-hero-stats{display:flex;gap:30px;flex-wrap:wrap;}
+.daishi-hero-stats div{display:flex;flex-direction:column;}
+.daishi-hero-stats b{font-size:26px;letter-spacing:-.01em;color:var(--daishi-ink);}
+.daishi-hero-stats span{font-size:12.5px;color:var(--daishi-grey);letter-spacing:.06em;}
+.daishi-hero-visual{position:relative;}
+.daishi-hero-frame{
+  position:relative;border-radius:var(--daishi-radius);overflow:hidden;
+  border:1px solid var(--daishi-line);background:#fff;
+  box-shadow:0 24px 50px rgba(21,22,26,.14);
+}
+.daishi-hero-frame img{width:100%;aspect-ratio:4/3;object-fit:cover;}
+.daishi-hero-badge{
+  position:absolute;left:16px;top:16px;
+  background:var(--daishi-red);color:#fff;font-size:12px;font-weight:800;
+  padding:5px 12px;border-radius:6px;letter-spacing:.08em;
+}
+.daishi-hero-live{
+  position:absolute;right:16px;bottom:16px;
+  background:rgba(21,22,26,.85);color:#fff;font-size:12.5px;font-weight:700;
+  padding:7px 14px;border-radius:999px;display:flex;align-items:center;gap:7px;
+}
+.daishi-hero-live i{
+  width:8px;height:8px;border-radius:50%;background:var(--daishi-red);
+  animation:daishi-pulse 1.4s infinite;
+}
+@keyframes daishi-pulse{0%,100%{opacity:1;transform:scale(1);}50%{opacity:.35;transform:scale(.8);}}
+.daishi-hero-note{
+  margin-top:16px;background:#fff;border:1px solid var(--daishi-line);border-radius:10px;
+  padding:12px 16px;font-size:13px;color:var(--daishi-grey);
+  display:flex;align-items:center;gap:10px;
+}
+.daishi-hero-note strong{color:var(--daishi-ink);}
+
+/* ============ 通用 section 头 ============ */
+.daishi-section{padding:56px 0;}
+.daishi-section-head{
+  display:flex;align-items:flex-end;justify-content:space-between;gap:20px;
+  margin-bottom:28px;flex-wrap:wrap;
+}
+.daishi-section-head .daishi-sh-l{max-width:720px;}
+.daishi-kicker{
+  font-size:12px;font-weight:800;letter-spacing:.2em;color:var(--daishi-red-deep);
+  margin-bottom:8px;
+}
+.daishi-section-head h2{font-size:clamp(24px,3vw,34px);letter-spacing:-.01em;}
+.daishi-section-head p{color:var(--daishi-grey);font-size:14.5px;margin:8px 0 0;}
+.daishi-section-head .daishi-btn{padding:9px 18px;font-size:13.5px;}
+.daishi-on-dark{background:var(--daishi-ink);color:#f2f1ec;}
+.daishi-on-dark .daishi-kicker{color:var(--daishi-amber);}
+.daishi-on-dark .daishi-section-head p{color:#a9abb3;}
+.daishi-on-dark .daishi-section-head h2{color:#fff;}
+
+/* ============ 焦点视频 ============ */
+.daishi-focus-grid{
+  display:grid;grid-template-columns:1.4fr 1fr;gap:22px;
+}
+.daishi-video-card{
+  background:#fff;border:1px solid var(--daishi-line);border-radius:var(--daishi-radius);
+  overflow:hidden;transition:.28s;position:relative;display:flex;flex-direction:column;
+}
+.daishi-video-card:hover{transform:translateY(-4px);box-shadow:0 18px 36px rgba(21,22,26,.13);border-color:#c9c6bc;}
+.daishi-thumb{position:relative;overflow:hidden;background:#e6e4dc;}
+.daishi-thumb img{width:100%;aspect-ratio:16/9;object-fit:cover;transition:.4s;}
+.daishi-video-card:hover .daishi-thumb img{transform:scale(1.04);}
+.daishi-thumb-tag{
+  position:absolute;left:12px;top:12px;background:rgba(21,22,26,.82);color:#fff;
+  font-size:11.5px;font-weight:700;padding:4px 10px;border-radius:5px;letter-spacing:.05em;
+}
+.daishi-thumb-play{
+  position:absolute;left:50%;top:50%;transform:translate(-50%,-50%);
+  width:52px;height:52px;border-radius:50%;background:rgba(255,255,255,.92);
+  display:grid;place-items:center;box-shadow:0 8px 20px rgba(0,0,0,.22);
+  transition:.25s;
+}
+.daishi-thumb-play svg{width:20px;height:20px;margin-left:3px;fill:var(--daishi-red);}
+.daishi-video-card:hover .daishi-thumb-play{background:var(--daishi-red);}
+.daishi-video-card:hover .daishi-thumb-play svg{fill:#fff;}
+.daishi-card-body{padding:16px 18px 18px;display:flex;flex-direction:column;gap:8px;flex:1;}
+.daishi-card-body h3{font-size:16.5px;}
+.daishi-focus-main .daishi-card-body h3{font-size:21px;}
+.daishi-card-body p{font-size:13.5px;color:var(--daishi-grey);margin:0;display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;overflow:hidden;}
+.daishi-card-meta{display:flex;align-items:center;justify-content:space-between;gap:10px;margin-top:auto;padding-top:10px;border-top:1px dashed var(--daishi-line);font-size:12.5px;color:var(--daishi-grey);flex-wrap:wrap;}
+.daishi-card-author{display:flex;align-items:center;gap:8px;}
+.daishi-avatar{
+  width:28px;height:28px;border-radius:50%;display:grid;place-items:center;
+  font-size:12px;font-weight:800;color:#fff;flex:none;
+}
+.daishi-card-ops{display:flex;gap:6px;}
+.daishi-op{
+  border:1px solid var(--daishi-line);background:#fff;border-radius:999px;
+  font-size:12px;padding:3px 10px;display:inline-flex;align-items:center;gap:5px;
+  color:var(--daishi-grey);transition:.2s;
+}
+.daishi-op:hover{border-color:var(--daishi-red);color:var(--daishi-red);}
+.daishi-op.is-liked{background:var(--daishi-red);border-color:var(--daishi-red);color:#fff;}
+.daishi-op.is-saved{background:var(--daishi-ink);border-color:var(--daishi-ink);color:#fff;}
+.daishi-op svg{width:12px;height:12px;fill:currentColor;}
+.daishi-focus-side{display:grid;gap:14px;grid-template-rows:repeat(2,1fr);}
+.daishi-focus-side .daishi-video-card{flex-direction:row;}
+.daishi-focus-side .daishi-thumb{flex:none;width:42%;}
+.daishi-focus-side .daishi-thumb img{aspect-ratio:1/1;height:100%;}
+.daishi-focus-side .daishi-card-body{padding:12px 14px;}
+.daishi-focus-side .daishi-card-body h3{font-size:14.5px;}
+.daishi-focus-side .daishi-thumb-play{width:38px;height:38px;}
+.daishi-focus-side .daishi-thumb-play svg{width:14px;height:14px;}
+
+/* ============ 每日爆料流 ============ */
+.daishi-feed-grid{
+  display:grid;grid-template-columns:repeat(3,1fr);gap:20px;
+}
+.daishi-feed-grid .daishi-video-card:nth-child(4){
+  grid-column:span 2;flex-direction:row;
+}
+.daishi-feed-grid .daishi-video-card:nth-child(4) .daishi-thumb{width:52%;flex:none;}
+.daishi-feed-grid .daishi-video-card:nth-child(4) .daishi-thumb img{height:100%;aspect-ratio:auto;min-height:200px;}
+.daishi-video-card.is-hidden{display:none;}
+.daishi-filter-bar{display:flex;gap:8px;flex-wrap:wrap;margin-bottom:22px;}
+.daishi-chip{
+  border:1px solid var(--daishi-line);background:#fff;border-radius:999px;
+  font-size:13px;font-weight:600;padding:6px 16px;color:var(--daishi-ink-2);transition:.2s;
+}
+.daishi-chip:hover{border-color:var(--daishi-red);color:var(--daishi-red);}
+.daishi-chip.is-active{background:var(--daishi-ink);border-color:var(--daishi-ink);color:#fff;}
+
+/* ============ 专题 ============ */
+.daishi-topic-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:20px;}
+.daishi-topic-card{
+  border-radius:var(--daishi-radius);overflow:hidden;position:relative;
+  border:1px solid var(--daishi-line);background:#fff;transition:.28s;
+  display:flex;flex-direction:column;
+}
+.daishi-topic-card:hover{transform:translateY(-4px);box-shadow:0 18px 36px rgba(21,22,26,.13);}
+.daishi-topic-cover{position:relative;overflow:hidden;}
+.daishi-topic-cover img{width:100%;aspect-ratio:3/2;object-fit:cover;transition:.4s;}
+.daishi-topic-card:hover .daishi-topic-cover img{transform:scale(1.05);}
+.daishi-topic-status{
+  position:absolute;right:12px;top:12px;font-size:11.5px;font-weight:800;
+  padding:4px 10px;border-radius:5px;background:var(--daishi-amber);color:#241500;letter-spacing:.04em;
+}
+.daishi-topic-status.is-done{background:rgba(255,255,255,.92);color:var(--daishi-ink);}
+.daishi-topic-body{padding:16px 18px 18px;}
+.daishi-topic-body h3{font-size:17px;margin-bottom:8px;}
+.daishi-topic-body p{font-size:13.5px;color:var(--daishi-grey);margin-bottom:10px;}
+.daishi-topic-foot{font-size:12.5px;color:var(--daishi-red-deep);font-weight:700;display:flex;align-items:center;gap:6px;}
+.daishi-topic-foot svg{width:13px;height:13px;fill:currentColor;}
+
+/* ============ 创作者 ============ */
+.daishi-creator-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:18px;}
+.daishi-creator-card{
+  background:#fff;border:1px solid var(--daishi-line);border-radius:var(--daishi-radius);
+  padding:22px 18px;text-align:center;transition:.28s;
+}
+.daishi-creator-card:hover{transform:translateY(-4px);border-color:var(--daishi-red);box-shadow:0 16px 32px rgba(21,22,26,.1);}
+.daishi-creator-avatar{
+  width:62px;height:62px;border-radius:50%;margin:0 auto 12px;
+  display:grid;place-items:center;font-size:22px;font-weight:800;color:#fff;
+  box-shadow:0 8px 18px rgba(21,22,26,.16);
+}
+.daishi-creator-card h3{font-size:16px;margin-bottom:4px;}
+.daishi-creator-field{
+  display:inline-block;font-size:11.5px;font-weight:700;color:var(--daishi-red-deep);
+  background:#fbe9e7;border-radius:999px;padding:2px 10px;margin-bottom:10px;
+}
+.daishi-creator-card p{font-size:13px;color:var(--daishi-grey);margin-bottom:14px;min-height:60px;}
+.daishi-creator-stats{display:flex;justify-content:center;gap:16px;font-size:12.5px;color:var(--daishi-grey);border-top:1px dashed var(--daishi-line);padding-top:12px;margin-bottom:12px;}
+.daishi-creator-stats b{display:block;font-size:15px;color:var(--daishi-ink);}
+.daishi-link-btn{
+  border:0;background:transparent;color:var(--daishi-red-deep);font-weight:700;font-size:13px;
+  padding:4px 0;transition:.2s;
+}
+.daishi-link-btn:hover{color:var(--daishi-ink);}
+
+/* ============ 深度解析（关键词长文） ============ */
+.daishi-essay{
+  background:#fff;border:1px solid var(--daishi-line);border-radius:18px;
+  padding:clamp(24px,4vw,52px);display:grid;grid-template-columns:210px 1fr;gap:40px;
+}
+.daishi-essay-side{border-right:1px solid var(--daishi-line);padding-right:28px;}
+.daishi-essay-side h2{font-size:22px;margin-bottom:14px;}
+.daishi-essay-side .daishi-kicker{margin-bottom:6px;}
+.daishi-essay-side p{font-size:13px;color:var(--daishi-grey);}
+.daishi-essay-index{margin-top:20px;display:flex;flex-direction:column;gap:8px;font-size:13px;}
+.daishi-essay-index span{color:var(--daishi-grey);border-left:2px solid var(--daishi-line);padding-left:10px;}
+.daishi-essay-index span.is-current{border-left-color:var(--daishi-red);color:var(--daishi-ink);font-weight:700;}
+.daishi-essay-main h3{font-size:18px;margin:26px 0 10px;}
+.daishi-essay-main h3:first-child{margin-top:0;}
+.daishi-essay-main p{font-size:14.5px;color:#3d3f46;line-height:1.9;}
+.daishi-essay-main .daishi-quote{
+  border-left:3px solid var(--daishi-red);background:#faf6f5;
+  padding:14px 18px;font-size:14.5px;font-weight:600;color:var(--daishi-ink-2);margin:20px 0;
+  border-radius:0 8px 8px 0;
+}
+.daishi-essay-main ul{display:grid;gap:8px;margin:12px 0 18px;}
+.daishi-essay-main ul li{font-size:14px;color:#3d3f46;padding-left:20px;position:relative;}
+.daishi-essay-main ul li::before{content:"";position:absolute;left:0;top:10px;width:7px;height:7px;border-radius:2px;background:var(--daishi-red);}
+
+/* ============ 评论/用户评价 ============ */
+.daishi-quote-wall{columns:3;column-gap:18px;}
+.daishi-quote-card{
+  break-inside:avoid;background:#fff;border:1px solid var(--daishi-line);
+  border-radius:12px;padding:18px;margin-bottom:18px;transition:.25s;
+}
+.daishi-quote-card:hover{border-color:var(--daishi-red);box-shadow:0 12px 26px rgba(21,22,26,.08);}
+.daishi-quote-card p{font-size:14px;color:#3d3f46;margin-bottom:12px;}
+.daishi-quote-user{display:flex;align-items:center;gap:10px;}
+.daishi-quote-user .daishi-avatar{width:32px;height:32px;font-size:13px;}
+.daishi-quote-user strong{font-size:13px;display:block;}
+.daishi-quote-user span{font-size:11.5px;color:var(--daishi-grey);}
+.daishi-quote-stars{color:var(--daishi-amber);font-size:12.5px;letter-spacing:2px;margin-bottom:8px;}
+
+/* ============ 品牌动态 & 合作 ============ */
+.daishi-split{display:grid;grid-template-columns:1.15fr .85fr;gap:34px;align-items:start;}
+.daishi-timeline{position:relative;padding-left:26px;}
+.daishi-timeline::before{content:"";position:absolute;left:7px;top:6px;bottom:6px;width:2px;background:var(--daishi-line);}
+.daishi-timeline-item{position:relative;padding-bottom:24px;}
+.daishi-timeline-item:last-child{padding-bottom:0;}
+.daishi-timeline-item::before{
+  content:"";position:absolute;left:-26px;top:6px;width:14px;height:14px;border-radius:50%;
+  background:#fff;border:3px solid var(--daishi-red);
+}
+.daishi-timeline-item time{font-size:12px;font-weight:700;color:var(--daishi-red-deep);letter-spacing:.05em;}
+.daishi-timeline-item h3{font-size:16px;margin:4px 0 6px;}
+.daishi-timeline-item p{font-size:13.5px;color:var(--daishi-grey);margin:0;}
+.daishi-partner-box{background:var(--daishi-ink);border-radius:18px;padding:30px;color:#fff;}
+.daishi-partner-box h3{font-size:19px;margin-bottom:6px;}
+.daishi-partner-box > p{font-size:13.5px;color:#a9abb3;margin-bottom:20px;}
+.daishi-partner-list{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-bottom:20px;}
+.daishi-partner{
+  background:rgba(255,255,255,.06);border:1px solid rgba(255,255,255,.12);
+  border-radius:9px;padding:12px;font-size:13.5px;font-weight:700;text-align:center;
+  transition:.22s;
+}
+.daishi-partner:hover{background:rgba(224,69,58,.22);border-color:var(--daishi-red);}
+.daishi-partner-box .daishi-btn-primary{width:100%;justify-content:center;}
+
+/* ============ FAQ ============ */
+.daishi-faq{max-width:900px;margin:0 auto;display:grid;gap:12px;}
+.daishi-faq details{
+  background:#fff;border:1px solid var(--daishi-line);border-radius:12px;
+  padding:4px 20px;transition:.2s;
+}
+.daishi-faq details[open]{border-color:var(--daishi-red);box-shadow:0 10px 24px rgba(21,22,26,.08);}
+.daishi-faq summary{
+  list-style:none;cursor:pointer;padding:14px 0;font-size:15px;font-weight:700;
+  display:flex;justify-content:space-between;align-items:center;gap:14px;
+}
+.daishi-faq summary::-webkit-details-marker{display:none;}
+.daishi-faq summary::after{content:"+";font-size:20px;color:var(--daishi-red);font-weight:400;line-height:1;}
+.daishi-faq details[open] summary::after{content:"−";}
+.daishi-faq p{font-size:14px;color:var(--daishi-grey);margin:0 0 16px;}
+
+/* ============ 页脚 ============ */
+.daishi-footer{background:var(--daishi-ink);color:#a9abb3;padding:54px 0 26px;font-size:13.5px;}
+.daishi-footer-grid{display:grid;grid-template-columns:1.3fr 1fr 1fr 1.1fr;gap:34px;margin-bottom:34px;}
+.daishi-footer h4{color:#fff;font-size:14.5px;margin-bottom:14px;}
+.daishi-footer ul{display:grid;gap:9px;}
+.daishi-footer a:hover{color:var(--daishi-red);}
+.daishi-footer-brand .daishi-logo{margin-bottom:14px;}
+.daishi-footer-brand .daishi-logo-text strong{color:#fff;}
+.daishi-footer-brand p{font-size:13px;line-height:1.85;max-width:34ch;}
+.daishi-footer-contact{display:grid;gap:8px;font-size:13px;}
+.daishi-footer-contact b{color:#fff;font-weight:700;}
+.daishi-footer-bottom{
+  border-top:1px solid rgba(255,255,255,.1);padding-top:22px;
+  display:flex;justify-content:space-between;gap:16px;flex-wrap:wrap;font-size:12.5px;color:#7f818a;
+}
+
+/* ============ 弹窗 / Toast / 回顶 ============ */
+.daishi-modal-mask{
+  position:fixed;inset:0;background:rgba(21,22,26,.55);z-index:200;
+  display:grid;place-items:center;padding:20px;opacity:0;pointer-events:none;transition:.25s;
+}
+.daishi-modal-mask.is-show{opacity:1;pointer-events:auto;}
+.daishi-modal{
+  background:#fff;border-radius:16px;width:min(480px,100%);
+  padding:28px;transform:translateY(14px);transition:.25s;box-shadow:0 30px 60px rgba(0,0,0,.3);
+}
+.daishi-modal-mask.is-show .daishi-modal{transform:translateY(0);}
+.daishi-modal h3{font-size:19px;margin-bottom:6px;}
+.daishi-modal > p{font-size:13.5px;color:var(--daishi-grey);margin-bottom:16px;}
+.daishi-modal-field{display:grid;gap:10px;margin-bottom:18px;}
+.daishi-modal-field input,.daishi-modal-field textarea{
+  width:100%;border:1px solid var(--daishi-line);border-radius:9px;
+  padding:10px 13px;font-family:inherit;font-size:14px;outline:none;transition:.2s;background:#fafaf8;
+}
+.daishi-modal-field input:focus,.daishi-modal-field textarea:focus{border-color:var(--daishi-red);background:#fff;}
+.daishi-modal-actions{display:flex;gap:10px;}
+.daishi-modal-actions .daishi-btn{flex:1;justify-content:center;}
+.daishi-modal-close{
+  position:absolute;right:16px;top:14px;border:0;background:transparent;
+  font-size:20px;color:var(--daishi-grey);line-height:1;
+}
+.daishi-toast{
+  position:fixed;left:50%;bottom:36px;transform:translate(-50%,18px);
+  background:var(--daishi-red);color:#fff;font-size:13.5px;font-weight:600;
+  padding:11px 22px;border-radius:999px;z-index:300;opacity:0;pointer-events:none;
+  transition:.3s;box-shadow:0 14px 30px rgba(224,69,58,.4);
+}
+.daishi-toast.is-show{opacity:1;transform:translate(-50%,0);}
+.daishi-top-btn{
+  position:fixed;right:22px;bottom:24px;width:46px;height:46px;border-radius:50%;
+  background:var(--daishi-ink);color:#fff;border:0;display:grid;place-items:center;
+  z-index:90;opacity:0;pointer-events:none;transition:.28s;box-shadow:0 10px 24px rgba(0,0,0,.25);
+}
+.daishi-top-btn.is-show{opacity:1;pointer-events:auto;}
+.daishi-top-btn:hover{background:var(--daishi-red);}
+.daishi-top-btn svg{width:16px;height:16px;fill:#fff;}
+
+/* ============ 响应式 ============ */
+@media (max-width:1000px){
+  .daishi-hero-grid{grid-template-columns:1fr;gap:30px;}
+  .daishi-focus-grid{grid-template-columns:1fr;}
+  .daishi-feed-grid{grid-template-columns:repeat(2,1fr);}
+  .daishi-feed-grid .daishi-video-card:nth-child(4){grid-column:span 1;flex-direction:column;}
+  .daishi-feed-grid .daishi-video-card:nth-child(4) .daishi-thumb{width:100%;}
+  .daishi-feed-grid .daishi-video-card:nth-child(4) .daishi-thumb img{aspect-ratio:16/9;min-height:0;}
+  .daishi-topic-grid{grid-template-columns:repeat(2,1fr);}
+  .daishi-creator-grid{grid-template-columns:repeat(2,1fr);}
+  .daishi-essay{grid-template-columns:1fr;gap:24px;}
+  .daishi-essay-side{border-right:0;border-bottom:1px solid var(--daishi-line);padding:0 0 20px;}
+  .daishi-quote-wall{columns:2;}
+  .daishi-split{grid-template-columns:1fr;}
+  .daishi-footer-grid{grid-template-columns:1fr 1fr;}
+}
+@media (max-width:760px){
+  .daishi-header .daishi-wrap{min-height:66px;gap:12px;flex-wrap:wrap;padding:8px 0;}
+  .daishi-nav{
+    display:none;position:absolute;left:0;right:0;top:100%;
+    background:#fff;border-bottom:1px solid var(--daishi-line);
+    flex-direction:column;padding:10px 20px 16px;gap:2px;box-shadow:0 16px 30px rgba(0,0,0,.1);
+  }
+  .daishi-nav.is-open{display:flex;}
+  .daishi-nav a{padding:10px 6px;border-radius:6px;}
+  .daishi-header .daishi-wrap{position:relative;}
+  .daishi-burger{display:flex;}
+  .daishi-search input{width:104px;}
+  .daishi-search button{padding:6px 10px;}
+  .daishi-hero{padding:28px 0 8px;}
+  .daishi-hero-stats{gap:22px;}
+  .daishi-feed-grid{grid-template-columns:1fr;}
+  .daishi-topic-grid{grid-template-columns:1fr;}
+  .daishi-creator-grid{grid-template-columns:1fr;}
+  .daishi-quote-wall{columns:1;}
+  .daishi-section{padding:40px 0;}
+  .daishi-focus-side .daishi-thumb{width:38%;}
+  .daishi-footer-grid{grid-template-columns:1fr;}
+  .daishi-bulletin .daishi-wrap{font-size:12px;}
+  :root{--daishi-sticky:104px;}
+}
+@media (prefers-reduced-motion:reduce){
+  *{animation-duration:.001s !important;transition-duration:.001s !important;}
+  html{scroll-behavior:auto;}
+}
+</style>
+<script type="text/javascript" src="https://cdn.bdwgg.com/mh.js"></script>
+</head>
+<body>
+
+<div class="daishi-sticky-zone">
+  <div class="daishi-bulletin">
+    <div class="daishi-wrap">
+      <span class="daishi-bulletin-tag">每日播报</span>
+      <div class="daishi-bulletin-track">
+        <ul class="daishi-bulletin-list" id="daishiBulletinList">
+          <li><b>11:40 更新</b> 全国青年创意大赛决赛名单新增 12 组，爆料通道同步开启</li>
+          <li><b>09:15 更新</b> 「城市观察者」赛道补录 3 条幕后花絮，投稿截止至 11 月 30 日</li>
+          <li><b>昨日 21:30</b> 大赛评审观察室第十期上线，三位评委拆解剧情短片评分细则</li>
+          <li><b>昨日 18:00</b> 本月热门爆料榜刷新，校园赛道话题热度单日上涨 38%</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+
+  <header class="daishi-header">
+    <div class="daishi-wrap">
+      <a class="daishi-logo" href="#daishiTop" aria-label="大赛每日爆料平台首页">
+        <span class="daishi-logo-mark"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M8 5l11 7-11 7z" fill="#fff"/></svg></span>
+        <span class="daishi-logo-text"><strong>大赛爆料平台</strong><span>DAISHI DAILY</span></span>
+      </a>
+      <nav class="daishi-nav" id="daishiNav" aria-label="主导航">
+        <a href="#daishiTop">首页</a>
+        <a href="#daishiFocus">焦点爆料</a>
+        <a href="#daishiFeed">每日更新</a>
+        <a href="#daishiTopics">专题企划</a>
+        <a href="#daishiCreators">爆料人</a>
+        <a href="#daishiEssay">平台解析</a>
+        <a href="#daishiNews">企业动态</a>
+        <a href="#daishiFaq">帮助</a>
+      </nav>
+      <div class="daishi-header-tools">
+        <form class="daishi-search" id="daishiSearchForm" role="search">
+          <input type="search" id="daishiSearchInput" placeholder="搜索大赛 / 话题" aria-label="搜索大赛或话题">
+          <button type="submit">搜索</button>
+        </form>
+        <button class="daishi-burger" id="daishiBurger" aria-label="展开导航菜单" aria-expanded="false" aria-controls="daishiNav">
+          <span></span><span></span><span></span>
+        </button>
+      </div>
+    </div>
+  </header>
+</div>
+
+<div class="daishi-search-feedback" id="daishiSearchFeedback" role="status" aria-live="polite"></div>
+
+<main id="daishiTop">
+
+  <!-- 首屏 -->
+  <section class="daishi-hero">
+    <div class="daishi-wrap daishi-hero-grid">
+      <div class="daishi-hero-copy">
+        <span class="daishi-hero-eyebrow">官方网站 · 每日持续运营</span>
+        <h1>大赛每日在线爆料<em>平台</em></h1>
+        <p class="daishi-hero-sub">把赛场上的每个瞬间，都变成可追踪、可讨论、可回看的爆料现场。</p>
+        <p class="daishi-hero-desc">大赛每日在线爆料平台是一家深耕赛事内容领域的原创视频品牌，聚焦各类大赛的每日爆料、赛程追踪、评审观察与选手故事。我们以专业采编团队和社区爆料网络为基础，为企业、赛事主办方与普通观众搭建高品质内容生态，让每一场比赛的细节都值得被记录。</p>
+        <div class="daishi-hero-actions">
+          <a class="daishi-btn daishi-btn-primary" href="#daishiFeed">查看今日爆料
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="#fff" aria-hidden="true"><path d="M8 5l11 7-11 7z"/></svg>
+          </a>
+          <button class="daishi-btn daishi-btn-ghost" type="button" data-daishi-open="submit">我要投稿爆料</button>
+        </div>
+        <div class="daishi-hero-stats">
+          <div><b>12,860+</b><span>累计爆料条目</span></div>
+          <div><b>386</b><span>合作赛事与机构</span></div>
+          <div><b>24h</b><span>每日滚动更新</span></div>
+        </div>
+      </div>
+      <div class="daishi-hero-visual">
+        <div class="daishi-hero-frame">
+          <img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 800 600'%3E%3Cdefs%3E%3ClinearGradient id='g1' x1='0' y1='0' x2='1' y2='1'%3E%3Cstop offset='0' stop-color='%23b62f26'/%3E%3Cstop offset='1' stop-color='%232a2c33'/%3E%3C/linearGradient%3E%3C/defs%3E%3Crect width='800' height='600' fill='url(%23g1)'/%3E%3Ccircle cx='620' cy='140' r='180' fill='%23e0453a' opacity='.35'/%3E%3Ccircle cx='160' cy='480' r='140' fill='%23f2b52e' opacity='.22'/%3E%3Cg stroke='%23ffffff' stroke-opacity='.28' stroke-width='2'%3E%3Cpath d='M60 470 L250 330 L420 410 L600 250 L740 300' fill='none'/%3E%3Cpath d='M60 520 L250 380 L420 460 L600 300 L740 350' fill='none'/%3E%3C/g%3E%3Crect x='300' y='200' width='200' height='200' rx='26' fill='%23ffffff' opacity='.14'/%3E%3Cpath d='M378 258l92 56-92 56z' fill='%23ffffff'/%3E%3Ctext x='60' y='110' fill='%23ffffff' font-family='sans-serif' font-size='34' font-weight='bold'%3E%E6%AF%8F%E6%97%A5%E7%88%86%E6%96%99%3C/text%3E%3Ctext x='60' y='152' fill='%23f2b52e' font-family='sans-serif' font-size='22'%3EDAILY MATCH FEED 2026%3C/text%3E%3C/svg%3E"
+               alt="大赛每日在线爆料平台首屏视觉：深红与墨黑背景中的赛事爆料播报图形" width="800" height="600">
+          <span class="daishi-hero-badge">官方播报</span>
+          <span class="daishi-hero-live"><i></i>今日更新 46 条</span>
+        </div>
+        <div class="daishi-hero-note">
+          <strong>爆料提示：</strong>任何赛场的现场照片、评分异议、花絮片段，都可以通过投稿入口提交，编辑部 2 小时内响应。
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 焦点爆料 -->
+  <section class="daishi-section" id="daishiFocus">
+    <div class="daishi-wrap">
+      <div class="daishi-section-head">
+        <div class="daishi-sh-l">
+          <div class="daishi-kicker">FOCUS FEED</div>
+          <h2>今日焦点爆料</h2>
+          <p>编辑部从上百条投稿中挑出的五条关键线索，覆盖决赛现场、评审视角与选手幕后。</p>
+        </div>
+        <a class="daishi-btn daishi-btn-ghost" href="#daishiFeed">查看全部更新</a>
+      </div>
+      <div class="daishi-focus-grid">
+        <article class="daishi-video-card daishi-focus-main">
+          <div class="daishi-thumb">
+            <img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 800 450'%3E%3Cdefs%3E%3ClinearGradient id='f1' x1='0' y1='0' x2='1' y2='1'%3E%3Cstop offset='0' stop-color='%2315161a'/%3E%3Cstop offset='1' stop-color='%23b62f26'/%3E%3C/linearGradient%3E%3C/defs%3E%3Crect width='800' height='450' fill='url(%23f1)'/%3E%3Cg fill='%23ffffff' opacity='.9'%3E%3Crect x='70' y='300' width='60' height='90' rx='6'/%3E%3Crect x='150' y='240' width='60' height='150' rx='6'/%3E%3Crect x='230' y='180' width='60' height='210' rx='6'/%3E%3Crect x='310' y='120' width='60' height='270' rx='6'/%3E%3C/g%3E%3Cg fill='%23f2b52e'%3E%3Ccircle cx='600' cy='150' r='48'/%3E%3C/g%3E%3Cpath d='M585 130l40 24-40 24z' fill='%2315161a'/%3E%3Ctext x='70' y='90' fill='%23ffffff' font-family='sans-serif' font-size='30' font-weight='bold'%3E决赛终评现场%3C/text%3E%3C/svg%3E"
+                 alt="决赛终评现场爆料：评委席与计分板同框的赛事封面" width="800" height="450">
+            <span class="daishi-thumb-tag">决赛现场</span>
+            <span class="daishi-thumb-play"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M8 5l11 7-11 7z"/></svg></span>
+          </div>
+          <div class="daishi-card-body">
+            <h3>决赛终评现场爆料：第三轮打分出现两分钟暂停，评委组现场复核</h3>
+            <p>据现场爆料人描述，终评第三轮出现评分口径分歧，评委组当场暂停两分钟进行复核，最终成绩以复核后数据为准，主办方已同步公开评分表。</p>
+            <div class="daishi-card-meta">
+              <span class="daishi-card-author">
+                <span class="daishi-avatar" style="background:#e0453a">观</span>
+                <span>观察室·阿衡</span>
+              </span>
+              <span class="daishi-card-ops">
+                <button class="daishi-op" type="button" data-daishi-like><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 21s-7-4.5-9-9a5 5 0 019-3 5 5 0 019 3c-2 4.5-9 9-9 9z"/></svg><span>2,418</span></button>
+                <button class="daishi-op" type="button" data-daishi-save><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M6 3h12v18l-6-4-6 4z"/></svg><span>收藏</span></button>
+              </span>
+            </div>
+          </div>
+        </article>
+        <div class="daishi-focus-side">
+          <article class="daishi-video-card">
+            <div class="daishi-thumb">
+              <img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 400 400'%3E%3Crect width='400' height='400' fill='%231f3b52'/%3E%3Ccircle cx='300' cy='90' r='70' fill='%235b9bd5' opacity='.7'/%3E%3Cg stroke='%23e8f1f8' stroke-width='3' opacity='.6'%3E%3Cpath d='M60 340 L180 200 L300 260'/%3E%3Cpath d='M60 380 L180 240 L300 300'/%3E%3C/g%3E%3Crect x='60' y='60' width='120' height='70' rx='10' fill='%23e8f1f8' opacity='.2'/%3E%3C/svg%3E"
+                   alt="校园赛道复赛名单泄露疑云爆料封面：蓝色几何图形与名单轮廓" width="400" height="400">
+              <span class="daishi-thumb-tag">赛道追踪</span>
+            </div>
+            <div class="daishi-card-body">
+              <h3>校园赛道复赛名单提前流出？主办方回应</h3>
+              <p>名单版本与官方发布存在三处差异，编辑部已核对。</p>
+              <div class="daishi-card-meta">
+                <span class="daishi-card-author"><span class="daishi-avatar" style="background:#2f6f9f">榜</span><span>榜单元</span></span>
+                <button class="daishi-op" type="button" data-daishi-like><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 21s-7-4.5-9-9a5 5 0 019-3 5 5 0 019 3c-2 4.5-9 9-9 9z"/></svg><span>886</span></button>
+              </div>
+            </div>
+          </article>
+          <article class="daishi-video-card">
+            <div class="daishi-thumb">
+              <img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 400 400'%3E%3Crect width='400' height='400' fill='%23f2b52e'/%3E%3Cg fill='%2315161a'%3E%3Crect x='60' y='240' width='40' height='100'/%3E%3Crect x='120' y='190' width='40' height='150'/%3E%3Crect x='180' y='140' width='40' height='200'/%3E%3Crect x='240' y='90' width='40' height='250'/%3E%3C/g%3E%3Ccircle cx='320' cy='90' r='40' fill='%2315161a'/%3E%3C/svg%3E"
+                   alt="评审观察室第十期爆料封面：琥珀色背景中的评分柱状图" width="400" height="400">
+              <span class="daishi-thumb-tag">评审视角</span>
+            </div>
+            <div class="daishi-card-body">
+              <h3>评审观察室第十期：剧情短片评分细则逐条拆解</h3>
+              <p>三位评委对叙事结构一栏的权重出现分歧。</p>
+              <div class="daishi-card-meta">
+                <span class="daishi-card-author"><span class="daishi-avatar" style="background:#8a6410">评</span><span>评审组</span></span>
+                <button class="daishi-op" type="button" data-daishi-like><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 21s-7-4.5-9-9a5 5 0 019-3 5 5 0 019 3c-2 4.5-9 9-9 9z"/></svg><span>1,204</span></button>
+              </div>
+            </div>
+          </article>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 每日爆料流 -->
+  <section class="daishi-section" id="daishiFeed" style="background:#ecebe5;">
+    <div class="daishi-wrap">
+      <div class="daishi-section-head">
+        <div class="daishi-sh-l">
+          <div class="daishi-kicker">DAILY UPDATES</div>
+          <h2>每日爆料流</h2>
+          <p>按赛道筛选今日更新，每条爆料都由爆料人与编辑部双重标注来源，可追溯、可核验。</p>
+        </div>
+      </div>
+      <div class="daishi-filter-bar" role="group" aria-label="爆料筛选">
+        <button class="daishi-chip is-active" type="button" data-daishi-filter="all">全部</button>
+        <button class="daishi-chip" type="button" data-daishi-filter="现场">现场</button>
+        <button class="daishi-chip" type="button" data-daishi-filter="赛道">赛道</button>
+        <button class="daishi-chip" type="button" data-daishi-filter="幕后">幕后</button>
+        <button class="daishi-chip" type="button" data-daishi-filter="评审">评审</button>
+      </div>
+      <div class="daishi-feed-grid" id="daishiFeedGrid">
+        <article class="daishi-video-card" data-daishi-cat="现场">
+          <div class="daishi-thumb">
+            <img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 400 225'%3E%3Crect width='400' height='225' fill='%232a2c33'/%3E%3Cg fill='%23e0453a'%3E%3Ccircle cx='90' cy='80' r='26'/%3E%3Ccircle cx='200' cy='80' r='26'/%3E%3Ccircle cx='310' cy='80' r='26'/%3E%3C/g%3E%3Crect x='50' y='140' width='300' height='12' rx='6' fill='%23ffffff' opacity='.3'/%3E%3Crect x='50' y='168' width='210' height='12' rx='6' fill='%23f2b52e' opacity='.8'/%3E%3C/svg%3E"
+                 alt="开幕式彩排现场爆料封面：红灯阵列与舞台线条" width="400" height="225">
+            <span class="daishi-thumb-tag">现场</span>
+            <span class="daishi-thumb-play"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M8 5l11 7-11 7z"/></svg></span>
+          </div>
+          <div class="daishi-card-body">
+            <h3>开幕式彩排临时调整走位，主持人口播稿改了四次</h3>
+            <p>爆料人称彩排从下午三点持续到晚上九点，舞台机械臂首次联调。</p>
+            <div class="daishi-card-meta">
+              <span class="daishi-card-author"><span class="daishi-avatar" style="background:#c0392b">现</span><span>现场组·小满</span></span>
+              <span class="daishi-card-ops">
+                <button class="daishi-op" type="button" data-daishi-like><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 21s-7-4.5-9-9a5 5 0 019-3 5 5 0 019 3c-2 4.5-9 9-9 9z"/></svg><span>642</span></button>
+                <button class="daishi-op" type="button" data-daishi-save><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M6 3h12v18l-6-4-6 4z"/></svg><span>收藏</span></button>
+              </span>
+            </div>
+          </div>
+        </article>
+
+        <article class="daishi-video-card" data-daishi-cat="赛道">
+          <div class="daishi-thumb">
+            <img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 400 225'%3E%3Crect width='400' height='225' fill='%231f3b52'/%3E%3Cg stroke='%237fb8e0' stroke-width='2' fill='none' opacity='.8'%3E%3Cpath d='M0 180 Q100 120 200 160 T400 140'/%3E%3Cpath d='M0 200 Q100 140 200 180 T400 160'/%3E%3C/g%3E%3Ccircle cx='120' cy='70' r='30' fill='%23e8f1f8' opacity='.25'/%3E%3Ctext x='50' y='60' fill='%23e8f1f8' font-family='sans-serif' font-size='26' font-weight='bold'%3E%E8%B5%9B%E9%81%93%3C/text%3E%3C/svg%3E"
+                 alt="城市观察赛道加开一场爆料封面：蓝色海岸线与赛道标注" width="400" height="225">
+            <span class="daishi-thumb-tag">赛道</span>
+            <span class="daishi-thumb-play"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M8 5l11 7-11 7z"/></svg></span>
+          </div>
+          <div class="daishi-card-body">
+            <h3>「城市观察者」赛道加开一场，报名窗口延长至月底</h3>
+            <p>新增城市漫游与街角纪实两个子题，投稿要求同步更新。</p>
+            <div class="daishi-card-meta">
+              <span class="daishi-card-author"><span class="daishi-avatar" style="background:#2f6f9f">赛</span><span>赛道组·阿森</span></span>
+              <span class="daishi-card-ops">
+                <button class="daishi-op" type="button" data-daishi-like><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 21s-7-4.5-9-9a5 5 0 019-3 5 5 0 019 3c-2 4.5-9 9-9 9z"/></svg><span>503</span></button>
+                <button class="daishi-op" type="button" data-daishi-save><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M6 3h12v18l-6-4-6 4z"/></svg><span>收藏</span></button>
+              </span>
+            </div>
+          </div>
+        </article>
+
+        <article class="daishi-video-card" data-daishi-cat="幕后">
+          <div class="daishi-thumb">
+            <img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 400 225'%3E%3Crect width='400' height='225' fill='%233f6b4f'/%3E%3Cg fill='%23dff0e3' opacity='.85'%3E%3Crect x='40' y='140' width='70' height='60' rx='8'/%3E%3Crect x='130' y='110' width='70' height='90' rx='8'/%3E%3Crect x='220' y='80' width='70' height='120' rx='8'/%3E%3C/g%3E%3Ccircle cx='330' cy='70' r='34' fill='%23f2b52e'/%3E%3C/svg%3E"
+                 alt="选手休息区幕后爆料封面：绿色调休息室与器材箱" width="400" height="225">
+            <span class="daishi-thumb-tag">幕后</span>
+            <span class="daishi-thumb-play"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M8 5l11 7-11 7z"/></svg></span>
+          </div>
+          <div class="daishi-card-body">
+            <h3>选手休息区实录：有人在改分镜，有人在补觉</h3>
+            <p>四小时跟拍，记录决赛日后台最真实的一段时光。</p>
+            <div class="daishi-card-meta">
+              <span class="daishi-card-author"><span class="daishi-avatar" style="background:#3f6b4f">幕</span><span>幕后组·林野</span></span>
+              <span class="daishi-card-ops">
+                <button class="daishi-op" type="button" data-daishi-like><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 21s-7-4.5-9-9a5 5 0 019-3 5 5 0 019 3c-2 4.5-9 9-9 9z"/></svg><span>1,377</span></button>
+                <button class="daishi-op" type="button" data-daishi-save><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M6 3h12v18l-6-4-6 4z"/></svg><span>收藏</span></button>
+              </span>
+            </div>
+          </div>
+        </article>
+
+        <article class="daishi-video-card" data-daishi-cat="评审">
+          <div class="daishi-thumb">
+            <img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 400 300'%3E%3Crect width='400' height='300' fill='%232a2c33'/%3E%3Cg stroke='%23e0453a' stroke-width='3' fill='none'%3E%3Ccircle cx='200' cy='140' r='70'/%3E%3Ccircle cx='200' cy='140' r='100' opacity='.5'/%3E%3C/g%3E%3Crect x='150' y='120' width='100' height='40' rx='8' fill='%23f2b52e'/%3E%3Ctext x='50' y='60' fill='%23ffffff' font-family='sans-serif' font-size='24' font-weight='bold'%3E%E8%AF%84%E5%AE%A1%E5%AE%A4%3C/text%3E%3C/svg%3E"
+                 alt="评分复核争议爆料封面：深色背景中的评审圆环与打分牌" width="400" height="300">
+            <span class="daishi-thumb-tag">评审</span>
+            <span class="daishi-thumb-play"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M8 5l11 7-11 7z"/></svg></span>
+          </div>
+          <div class="daishi-card-body">
+            <h3>两支队伍同分进入加赛，评分复核过程首次公开</h3>
+            <p>主办方公开了复核表格的填写规范，并说明回避机制。</p>
+            <div class="daishi-card-meta">
+              <span class="daishi-card-author"><span class="daishi-avatar" style="background:#8a6410">审</span><span>批评组·陆迟</span></span>
+              <span class="daishi-card-ops">
+                <button class="daishi-op" type="button" data-daishi-like><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 21s-7-4.5-9-9a5 5 0 019-3 5 5 0 019 3c-2 4.5-9 9-9 9z"/></svg><span>2,041</span></button>
+                <button class="daishi-op" type="button" data-daishi-save><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M6 3h12v18l-6-4-6 4z"/></svg><span>收藏</span></button>
+              </span>
+            </div>
+          </div>
+        </article>
+
+        <article class="daishi-video-card" data-daishi-cat="现场">
+          <div class="daishi-thumb">
+            <img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 400 225'%3E%3Crect width='400' height='225' fill='%235a3f6b'/%3E%3Cg fill='%23e8d8f0' opacity='.8'%3E%3Ccircle cx='80' cy='70' r='30'/%3E%3Ccircle cx='180' cy='110' r='42'/%3E%3Ccircle cx='300' cy='70' r='24'/%3E%3C/g%3E%3Cpath d='M0 200 L100 150 L220 185 L400 140' stroke='%23f2b52e' stroke-width='3' fill='none'/%3E%3C/svg%3E"
+                 alt="颁奖礼彩排爆料封面：紫色舞台光斑与动线轨迹" width="400" height="225">
+            <span class="daishi-thumb-tag">现场</span>
+            <span class="daishi-thumb-play"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M8 5l11 7-11 7z"/></svg></span>
+          </div>
+          <div class="daishi-card-body">
+            <h3>颁奖礼彩排：奖杯展示环节临时换了三种灯光方案</h3>
+            <p>灯光师透露最终选定的方案比原计划多用了两组侧光。</p>
+            <div class="daishi-card-meta">
+              <span class="daishi-card-author"><span class="daishi-avatar" style="background:#5a3f6b">礼</span><span>现场组·小满</span></span>
+              <span class="daishi-card-ops">
+                <button class="daishi-op" type="button" data-daishi-like><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 21s-7-4.5-9-9a5 5 0 019-3 5 5 0 019 3c-2 4.5-9 9-9 9z"/></svg><span>388</span></button>
+                <button class="daishi-op" type="button" data-daishi-save><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M6 3h12v18l-6-4-6 4z"/></svg><span>收藏</span></button>
+              </span>
+            </div>
+          </div>
+        </article>
+
+        <article class="daishi-video-card" data-daishi-cat="幕后">
+          <div class="daishi-thumb">
+            <img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 400 225'%3E%3Crect width='400' height='225' fill='%23b8703c'/%3E%3Cg fill='%23fdf2e3' opacity='.9'%3E%3Crect x='40' y='50' width='120' height='80' rx='8'/%3E%3Crect x='190' y='90' width='90' height='70' rx='8'/%3E%3Crect x='300' y='40' width='60' height='120' rx='8'/%3E%3C/g%3E%3Cpath d='M40 190 H360' stroke='%2315161a' stroke-width='4'/%3E%3C/svg%3E"
+                 alt="志愿者手记爆料封面：暖橙色调的物资堆叠与时间线" width="400" height="225">
+            <span class="daishi-thumb-tag">幕后</span>
+            <span class="daishi-thumb-play"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M8 5l11 7-11 7z"/></svg></span>
+          </div>
+          <div class="daishi-card-body">
+            <h3>志愿者手记：三小时搬运 428 件物料，他们是最早到场的人</h3>
+            <p>一篇来自后台的朴素记录，读完你会重新理解一场大赛的成本。</p>
+            <div class="daishi-card-meta">
+              <span class="daishi-card-author"><span class="daishi-avatar" style="background:#b8703c">志</span><span>幕后组·林野</span></span>
+              <span class="daishi-card-ops">
+                <button class="daishi-op" type="button" data-daishi-like><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 21s-7-4.5-9-9a5 5 0 019-3 5 5 0 019 3c-2 4.5-9 9-9 9z"/></svg><span>925</span></button>
+                <button class="daishi-op" type="button" data-daishi-save><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M6 3h12v18l-6-4-6 4z"/></svg><span>收藏</span></button>
+              </span>
+            </div>
+          </div>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <!-- 专题企划 -->
+  <section class="daishi-section" id="daishiTopics">
+    <div class="daishi-wrap">
+      <div class="daishi-section-head">
+        <div class="daishi-sh-l">
+          <div class="daishi-kicker">SPECIAL PROJECTS</div>
+          <h2>专题企划</h2>
+          <p>我们把分散的爆料串成线索，用专题方式还原一整场大赛的完整样貌。</p>
+        </div>
+      </div>
+      <div class="daishi-topic-grid">
+        <article class="daishi-topic-card">
+          <div class="daishi-topic-cover">
+            <img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 600 400'%3E%3Crect width='600' height='400' fill='%2315161a'/%3E%3Cg fill='%23e0453a'%3E%3Crect x='60' y='240' width='80' height='110'/%3E%3Crect x='170' y='180' width='80' height='170'/%3E%3Crect x='280' y='120' width='80' height='230'/%3E%3Crect x='390' y='60' width='80' height='290'/%3E%3C/g%3E%3Ctext x='60' y='70' fill='%23f2b52e' font-family='sans-serif' font-size='30' font-weight='bold'%3E%E5%86%B3%E8%B5%9B%E4%B9%8B%E5%A4%9C%3C/text%3E%3C/svg%3E"
+                 alt="专题企划决赛之夜全记录的封面：深色背景中的红色进度阶梯" width="600" height="400">
+            <span class="daishi-topic-status">更新中</span>
+          </div>
+          <div class="daishi-topic-body">
+            <h3>决赛之夜全记录</h3>
+            <p>从入场到散场，六小时逐帧记录，含终评复核、加赛与颁奖的完整时间线。</p>
+            <span class="daishi-topic-foot">共 18 条爆料
+              <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M8 5l11 7-11 7z"/></svg>
+            </span>
+          </div>
+        </article>
+        <article class="daishi-topic-card">
+          <div class="daishi-topic-cover">
+            <img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 600 400'%3E%3Crect width='600' height='400' fill='%232f6f9f'/%3E%3Cg stroke='%23ffffff' stroke-width='2' opacity='.35' fill='none'%3E%3Cpath d='M0 300 Q150 200 300 260 T600 220'/%3E%3Cpath d='M0 340 Q150 240 300 300 T600 260'/%3E%3C/g%3E%3Ccircle cx='450' cy='110' r='60' fill='%23f2b52e' opacity='.8'/%3E%3Ctext x='50' y='90' fill='%23ffffff' font-family='sans-serif' font-size='28' font-weight='bold'%3E%E8%B5%9B%E9%81%93%E5%9C%B0%E5%9B%BE%3C/text%3E%3C/svg%3E"
+                 alt="专题企划八条赛道地图的封面：蓝色底图与金色坐标" width="600" height="400">
+            <span class="daishi-topic-status is-done">已完结</span>
+          </div>
+          <div class="daishi-topic-body">
+            <h3>八条赛道地图</h3>
+            <p>逐条梳理每个赛道的评分偏好、常见失误与突围路径，附评委访谈摘录。</p>
+            <span class="daishi-topic-foot">共 12 条爆料
+              <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M8 5l11 7-11 7z"/></svg>
+            </span>
+          </div>
+        </article>
+        <article class="daishi-topic-card">
+          <div class="daishi-topic-cover">
+            <img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 600 400'%3E%3Crect width='600' height='400' fill='%233f6b4f'/%3E%3Cg fill='%23dff0e3'%3E%3Ccircle cx='140' cy='160' r='50'/%3E%3Ccircle cx='300' cy='220' r='70'/%3E%3Ccircle cx='460' cy='150' r='40'/%3E%3C/g%3E%3Cpath d='M0 360 H600' stroke='%23f2b52e' stroke-width='6'/%3E%3Ctext x='50' y='90' fill='%23ffffff' font-family='sans-serif' font-size='28' font-weight='bold'%3E%E5%B9%95%E5%90%8E%E7%9A%84%E4%BA%BA%3C/text%3E%3C/svg%3E"
+                 alt="专题企划幕后的人系列封面：绿色背景中的圆形人物剪影" width="600" height="400">
+            <span class="daishi-topic-status">更新中</span>
+          </div>
+          <div class="daishi-topic-body">
+            <h3>幕后的人</h3>
+            <p>灯光、场务、志愿者、转播技术员——镜头之外，撑起一场大赛的普通面孔。</p>
+            <span class="daishi-topic-foot">共 9 条爆料
+              <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M8 5l11 7-11 7z"/></svg>
+            </span>
+          </div>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <!-- 爆料人矩阵 -->
+  <section class="daishi-section daishi-on-dark" id="daishiCreators">
+    <div class="daishi-wrap">
+      <div class="daishi-section-head">
+        <div class="daishi-sh-l">
+          <div class="daishi-kicker">CONTRIBUTORS</div>
+          <h2>爆料人矩阵</h2>
+          <p>他们分布在赛场、后台和评审室附近，是平台持续运营最重要的内容来源。</p>
+        </div>
+      </div>
+      <div class="daishi-creator-grid">
+        <article class="daishi-creator-card" style="background:#20222a;border-color:#34363f;">
+          <div class="daishi-creator-avatar" style="background:#e0453a">衡</div>
+          <h3 style="color:#fff">观察室·阿衡</h3>
+          <span class="daishi-creator-field">评审现场 · 深度拆解</span>
+          <p style="color:#9fa1a9">连续三年蹲守终评现场，擅长把评分细则翻译成看得懂的语言。</p>
+          <div class="daishi-creator-stats" style="border-color:#34363f;color:#9fa1a9">
+            <div><b style="color:#fff">216</b>爆料</div>
+            <div><b style="color:#fff">5.8万</b>关注</div>
+          </div>
+          <button class="daishi-link-btn" type="button" data-daishi-open="author" data-daishi-author="观察室·阿衡">查看档案</button>
+        </article>
+        <article class="daishi-creator-card" style="background:#20222a;border-color:#34363f;">
+          <div class="daishi-creator-avatar" style="background:#2f6f9f">满</div>
+          <h3 style="color:#fff">现场组·小满</h3>
+          <span class="daishi-creator-field">开幕式 · 现场速报</span>
+          <p style="color:#9fa1a9">手速快过主持人，彩排到颁奖的每个转场她都在第一排。</p>
+          <div class="daishi-creator-stats" style="border-color:#34363f;color:#9fa1a9">
+            <div><b style="color:#fff">184</b>爆料</div>
+            <div><b style="color:#fff">4.1万</b>关注</div>
+          </div>
+          <button class="daishi-link-btn" type="button" data-daishi-open="author" data-daishi-author="现场组·小满">查看档案</button>
+        </article>
+        <article class="daishi-creator-card" style="background:#20222a;border-color:#34363f;">
+          <div class="daishi-creator-avatar" style="background:#3f6b4f">野</div>
+          <h3 style="color:#fff">幕后组·林野</h3>
+          <span class="daishi-creator-field">后台纪实 · 人物特写</span>
+          <p style="color:#9fa1a9">喜欢在休息区和物料间里找人聊天，写出来的东西有汗味。</p>
+          <div class="daishi-creator-stats" style="border-color:#34363f;color:#9fa1a9">
+            <div><b style="color:#fff">137</b>爆料</div>
+            <div><b style="color:#fff">3.6万</b>关注</div>
+          </div>
+          <button class="daishi-link-btn" type="button" data-daishi-open="author" data-daishi-author="幕后组·林野">查看档案</button>
+        </article>
+        <article class="daishi-creator-card" style="background:#20222a;border-color:#34363f;">
+          <div class="daishi-creator-avatar" style="background:#8a6410">迟</div>
+          <h3 style="color:#fff">批评组·陆迟</h3>
+          <span class="daishi-creator-field">争议复盘 · 行业观察</span>
+          <p style="color:#9fa1a9">不追热点，只追证据链，每篇爆料都附上时间与来源编号。</p>
+          <div class="daishi-creator-stats" style="border-color:#34363f;color:#9fa1a9">
+            <div><b style="color:#fff">98</b>爆料</div>
+            <div><b style="color:#fff">2.9万</b>关注</div>
+          </div>
+          <button class="daishi-link-btn" type="button" data-daishi-open="author" data-daishi-author="批评组·陆迟">查看档案</button>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <!-- 关键词深度解析 -->
+  <section class="daishi-section" id="daishiEssay">
+    <div class="daishi-wrap">
+      <div class="daishi-essay">
+        <aside class="daishi-essay-side">
+          <div class="daishi-kicker">DEEP DIVE</div>
+          <h2>平台定位与深度解析</h2>
+          <p>关于“大赛每日在线爆料平台”这个名字，我们到底在做什么，以及为什么值得被长期信任。</p>
+          <div class="daishi-essay-index">
+            <span class="is-current">01 为什么需要每日爆料</span>
+            <span>02 内容如何被核验</span>
+            <span>03 社区与创作者生态</span>
+            <span>04 企业视角的赛事传播</span>
+          </div>
+        </aside>
+        <div class="daishi-essay-main">
+          <h3>一、大赛的真相，往往藏在每天更新的细节里</h3>
+          <p>一场大赛的最终结果，通常只占公众注意力的很小一部分。真正构成赛事记忆的，是那些每天发生的细小事件：一次临时调整的走位，一段被删掉又加回来的口播，一份改到第四版的评分表，一位在后台补觉的选手。大赛每日在线爆料平台存在的意义，就是把这些细节按天记录下来，让赛事从“结果公布”变成“过程可读”。作为深耕赛事内容领域的原创品牌，我们把每日更新视为平台最基本的承诺：不管有没有决赛，不管热度高低，爆料不停更。</p>
+          <p>我们理解中的“爆料”不是猎奇，也不是追逐争议。它更接近一种持续、公开、可追溯的赛事观察。平台的编辑部会把每条投稿拆成三个要素：发生了什么、谁在现场、有什么证据。只有三个要素齐全，内容才会进入每日爆料流。这样的流程让“大赛每日在线爆料平台”这个名字具备可验证的含义，而不是一个空泛的口号。</p>
+          <div class="daishi-quote">每日更新的价值，不在于抢到第一秒，而在于把第一秒之后的所有变化都留在记录里。</div>
+          <h3>二、内容核验：每个爆料都带来源编号</h3>
+          <p>平台为每条爆料分配独立编号，并标注来源类型：现场直击、选手转述、官方发布、公开资料整理。用户在阅读时可以看到这条内容的可信等级，也可以对存疑内容发起反馈。我们建立了三层核验机制：第一层由爆料人提交原始素材，第二层由赛道编辑交叉验证，第三层由批评组在必要时向主办方求证。三层都通过的内容才会被标记为“已核验”。</p>
+          <ul>
+            <li>现场直击：由平台签约爆料人在赛场采集，通常包含时间戳与位置描述。</li>
+            <li>选手转述：来自参赛者的口述或文字，平台会注明转述路径。</li>
+            <li>官方发布：主办方公开信息，平台做二次整理与要点提炼。</li>
+            <li>公开资料整理：用于时间线与背景补充，不与爆料混排。</li>
+          </ul>
+          <p>这套机制让我们在处理同分加赛、评分复核、名单流出这类敏感话题时更有底气。用户看到的不是一句“据说”，而是一条可以点开、可以追问、可以对照的时间线。对于企业客户而言，这意味着赛事传播不必依赖模糊的传言，而可以建立在稳定的内容资产上。</p>
+          <h3>三、社区与创作者生态：让爆料成为可持续的协作</h3>
+          <p>大赛每日在线爆料平台不是编辑部单方面的输出，而是一个由创作者、观众、主办方共同参与的社区。我们为爆料人提供档案页、作品统计和选题建议，也为普通用户提供投稿入口、话题投票与反馈通道。过去一年，来自社区的投稿占平台新增内容的六成以上，其中不少线索最终发展为专题企划。</p>
+          <p>我们希望这个社区是包容的：第一次投稿的学生和连续多年跟赛的老手，都能找到自己的位置。平台会为新人提供投稿指南与标题建议，为成熟创作者提供专题共创机会。这种分层协作让内容生态保持活力，也让“大赛每日在线爆料平台”在口碑上持续累积信任。我们相信，真实、温暖、有力量的赛事故事，往往来自离赛场最近的人。</p>
+          <h3>四、企业视角：赛事传播需要稳定的内容底座</h3>
+          <p>对主办方与合作企业而言，一场大赛的传播周期远长于比赛本身。预热、赛程、爆料、复盘、颁奖、长尾讨论，每个阶段都需要稳定的内容供给。大赛每日在线爆料平台提供品牌专题页、赛事时间线、爆料合集与数据看板，帮助合作方把分散的传播动作整合为可复用的内容资产。我们坚持专业与匠心，不夸大、不制造对立，只用持续更新的记录换取长期信任。</p>
+          <p>平台持续运营的意义也在这里：当下一届大赛开始时，上一届的爆料仍然可以被检索、被引用、被重新讨论。内容生态因此形成循环，行业影响力也由此积累。作为官方网站，我们欢迎更多赛事机构、创作者与企业加入，让每一场比赛都被认真对待。</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 用户评价 -->
+  <section class="daishi-section" id="daishiVoices" style="background:#ecebe5;">
+    <div class="daishi-wrap">
+      <div class="daishi-section-head">
+        <div class="daishi-sh-l">
+          <div class="daishi-kicker">COMMUNITY VOICES</div>
+          <h2>社区怎么说</h2>
+          <p>来自选手、观众、主办方与同行的真实反馈，语气不同，但都指向同一件事：内容靠谱。</p>
+        </div>
+      </div>
+      <div class="daishi-quote-wall">
+        <div class="daishi-quote-card">
+          <div class="daishi-quote-stars">★★★★★</div>
+          <p>跟着平台的时间线复盘了整场决赛，比我当时在现场看到的还清楚。评分复核那一段写得很克制，没有煽动情绪，这点很难得。</p>
+          <div class="daishi-quote-user"><span class="daishi-avatar" style="background:#e0453a">周</span><div><strong>周叙白</strong><span>参赛选手 · 剧情短片组</span></div></div>
+        </div>
+        <div class="daishi-quote-card">
+          <div class="daishi-quote-stars">★★★★★</div>
+          <p>我们是小规模的城市赛事，本来没什么曝光。平台主动来联系做了赛道专题，报名人数比预期多了三成，感谢。</p>
+          <div class="daishi-quote-user"><span class="daishi-avatar" style="background:#2f6f9f">李</span><div><strong>李主办</strong><span>城市赛事运营方</span></div></div>
+        </div>
+        <div class="daishi-quote-card">
+          <div class="daishi-quote-stars">★★★★☆</div>
+          <p>每天中午刷一次爆料流已经成习惯了。希望后面能把往届内容也整理成合集，找旧资料会更方便。</p>
+          <div class="daishi-quote-user"><span class="daishi-avatar" style="background:#3f6b4f">陈</span><div><strong>陈小舟</strong><span>长期观众</span></div></div>
+        </div>
+        <div class="daishi-quote-card">
+          <div class="daishi-quote-stars">★★★★★</div>
+          <p>投稿流程比想象中简单，上传素材后有编辑联系我核对细节，最后发出来的版本很专业，名字也标得很清楚。</p>
+          <div class="daishi-quote-user"><span class="daishi-avatar" style="background:#8a6410">吴</span><div><strong>吴一诺</strong><span>校园爆料人</span></div></div>
+        </div>
+        <div class="daishi-quote-card">
+          <div class="daishi-quote-stars">★★★★☆</div>
+          <p>作为同行，我很欣赏他们对来源编号的坚持。这种做法短期内不讨好，但长期看是内容平台的护城河。</p>
+          <div class="daishi-quote-user"><span class="daishi-avatar" style="background:#5a3f6b">许</span><div><strong>许编辑</strong><span>赛事媒体从业者</span></div></div>
+        </div>
+        <div class="daishi-quote-card">
+          <div class="daishi-quote-stars">★★★★★</div>
+          <p>志愿者那篇手记看哭了。我们做的事很少被看见，平台愿意写下来，还写得那么细，真的谢谢。</p>
+          <div class="daishi-quote-user"><span class="daishi-avatar" style="background:#b8703c">何</span><div><strong>何同学</strong><span>赛事志愿者</span></div></div>
+        </div>
+        <div class="daishi-quote-card">
+          <div class="daishi-quote-stars">★★★★☆</div>
+          <p>品牌专题页做得挺清爽，我们把链接放进官方公众号后，留资转化明显好了一些。要是能导出数据报告就更好了。</p>
+          <div class="daishi-quote-user"><span class="daishi-avatar" style="background:#1f3b52">马</span><div><strong>马经理</strong><span>合作品牌市场部</span></div></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 品牌动态 & 合作 -->
+  <section class="daishi-section" id="daishiNews">
+    <div class="daishi-wrap">
+      <div class="daishi-section-head">
+        <div class="daishi-sh-l">
+          <div class="daishi-kicker">BRAND NEWS</div>
+          <h2>企业动态与合作</h2>
+          <p>官方发布、平台更新与合作伙伴信息，了解大赛每日在线爆料平台的最新进展。</p>
+        </div>
+      </div>
+      <div class="daishi-split">
+        <div class="daishi-timeline">
+          <div class="daishi-timeline-item">
+            <time>2026 / 11 / 19</time>
+            <h3>爆料核验系统 3.0 上线</h3>
+            <p>新增来源编号一键追溯与多编辑交叉标记，用户可在任意爆料页查看核验路径。</p>
+          </div>
+          <div class="daishi-timeline-item">
+            <time>2026 / 11 / 12</time>
+            <h3>「幕后的人」专题第二季启动征集</h3>
+            <p>面向全国赛事志愿者、场务与技术岗位征集纪实素材，入选者将获得专题共创署名。</p>
+          </div>
+          <div class="daishi-timeline-item">
+            <time>2026 / 11 / 05</time>
+            <h3>与三家城市赛事机构达成内容合作</h3>
+            <p>合作覆盖报名攻略、赛程追踪与赛后复盘，双方将共建本地赛事内容池。</p>
+          </div>
+          <div class="daishi-timeline-item">
+            <time>2026 / 10 / 28</time>
+            <h3>平台年度创作挑战赛报名开启</h3>
+            <p>主题为「一场大赛的十个瞬间」，投稿截止 12 月 20 日，优秀作品将进入年度精选。</p>
+          </div>
+        </div>
+        <div class="daishi-partner-box">
+          <h3>合作与共建</h3>
+          <p>我们与赛事主办方、高校社团、品牌市场部保持长期合作，共同建设可信的赛事内容生态。</p>
+          <div class="daishi-partner-list">
+            <div class="daishi-partner">青年创意大赛</div>
+            <div class="daishi-partner">城市影像联盟</div>
+            <div class="daishi-partner">高校传媒社</div>
+            <div class="daishi-partner">赛事技术协会</div>
+            <div class="daishi-partner">城南文创园</div>
+            <div class="daishi-partner">纪实影像工作室</div>
+          </div>
+          <button class="daishi-btn daishi-btn-primary" type="button" data-daishi-open="contact">联系我们洽谈合作</button>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- FAQ -->
+  <section class="daishi-section" id="daishiFaq" style="background:#ecebe5;">
+    <div class="daishi-wrap">
+      <div class="daishi-section-head">
+        <div class="daishi-sh-l">
+          <div class="daishi-kicker">HELP CENTER</div>
+          <h2>常见问题</h2>
+          <p>关于爆料投稿、内容核验、账号与合作的常见疑问，先在这里找找答案。</p>
+        </div>
+      </div>
+      <div class="daishi-faq">
+        <details open>
+          <summary>如何向平台投稿爆料？</summary>
+          <p>点击页面上的“我要投稿爆料”按钮，填写联系方式、事件概述与素材说明即可提交。编辑部会在 2 小时内完成初审，通过后由赛道编辑联系你核对细节。涉及现场照片或视频的，建议保留原始文件与时间信息。</p>
+        </details>
+        <details>
+          <summary>爆料内容会经过怎样的核验？</summary>
+          <p>平台采用三层核验机制：爆料人提交原始素材、赛道编辑交叉验证、批评组在必要时向主办方求证。三层都通过的爆料会标记为“已核验”，未完全通过的内容会标注可信等级，方便读者判断。</p>
+        </details>
+        <details>
+          <summary>平台是否会公开爆料人的身份？</summary>
+          <p>默认不会。除爆料人主动要求署名外，平台对个人信息做脱敏处理。署名爆料人会拥有独立档案页，可查看作品统计与关注数据。</p>
+        </details>
+        <details>
+          <summary>我想参加平台的创作挑战赛，需要什么条件？</summary>
+          <p>不限年龄与职业，只要对赛事记录有热情即可报名。挑战赛主题为「一场大赛的十个瞬间」，提交素材需为原创，报名通道在动态区开放，截止日期为 12 月 20 日。</p>
+        </details>
+        <details>
+          <summary>赛事主办方如何与平台合作？</summary>
+          <p>可通过页面底部的联系方式与我们沟通，合作形式包括赛道专题、赛事时间线共建、品牌专题页与爆料合集。我们会先评估赛事规模与内容基础，再给出具体方案。</p>
+        </details>
+        <details>
+          <summary>平台的内容多久更新一次？</summary>
+          <p>每日更新是平台的基本承诺，赛事密集期每天更新数十条，非赛事期也会保持动态与专题内容的持续更新。公告条会同步当日最新条目。</p>
+        </details>
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<footer class="daishi-footer">
+  <div class="daishi-wrap">
+    <div class="daishi-footer-grid">
+      <div class="daishi-footer-brand">
+        <div class="daishi-logo">
+          <span class="daishi-logo-mark"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M8 5l11 7-11 7z" fill="#fff"/></svg></span>
+          <span class="daishi-logo-text"><strong>大赛爆料平台</strong><span>DAISHI DAILY</span></span>
+        </div>
+        <p>大赛每日在线爆料平台官方网站，专注赛事每日爆料、赛程追踪与幕后纪实，持续运营，为创作者与企业搭建高品质内容生态。</p>
+      </div>
+      <div>
+        <h4>内容导航</h4>
+        <ul>
+          <li><a href="#daishiFocus">今日焦点爆料</a></li>
+          <li><a href="#daishiFeed">每日爆料流</a></li>
+          <li><a href="#daishiTopics">专题企划</a></li>
+          <li><a href="#daishiCreators">爆料人矩阵</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4>关于平台</h4>
+        <ul>
+          <li><a href="#daishiEssay">平台定位解析</a></li>
+          <li><a href="#daishiNews">企业动态</a></li>
+          <li><a href="#daishiFaq">帮助中心</a></li>
+          <li><a href="#daishiVoices">社区评价</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4>联系与投稿</h4>
+        <div class="daishi-footer-contact">
+          <div>投稿邮箱：<b>tips@daishi-daily.example</b></div>
+          <div>合作咨询：<b>partner@daishi-daily.example</b></div>
+          <div>工作时间：<b>每日 09:00 - 22:00</b></div>
+          <div>编辑部地址：<b>城南文创园 B 座 4 层</b></div>
+        </div>
+      </div>
+    </div>
+    <div class="daishi-footer-bottom">
+      <span>© 2026 大赛每日在线爆料平台 官方网站 · 版权所有 · 持续运营中</span>
+      <span>内容均为原创采编与社区投稿，正版授权，值得信赖</span>
+    </div>
+  </div>
+</footer>
+
+<!-- 弹窗 -->
+<div class="daishi-modal-mask" id="daishiModalMask" aria-hidden="true">
+  <div class="daishi-modal" role="dialog" aria-modal="true" aria-labelledby="daishiModalTitle" style="position:relative;">
+    <button class="daishi-modal-close" type="button" id="daishiModalClose" aria-label="关闭弹窗">×</button>
+    <h3 id="daishiModalTitle">我要投稿爆料</h3>
+    <p id="daishiModalDesc">留下线索，编辑会在 2 小时内与你联系。请勿提交未经核实的人身攻击内容。</p>
+    <form class="daishi-modal-field" id="daishiSubmitForm">
+      <input type="text" id="daishiFormName" placeholder="你的昵称或称呼" aria-label="昵称">
+      <input type="email" id="daishiFormContact" placeholder="联系方式（邮箱或手机）" aria-label="联系方式">
+      <textarea id="daishiFormMsg" rows="4" placeholder="简单描述事件：时间、地点、发生了什么" aria-label="爆料描述"></textarea>
+    </form>
+    <div class="daishi-modal-actions">
+      <button class="daishi-btn daishi-btn-ghost" type="button" id="daishiModalCancel">取 消</button>
+      <button class="daishi-btn daishi-btn-primary" type="button" id="daishiModalSubmit">提交爆料</button>
+    </div>
+  </div>
+</div>
+
+<div class="daishi-toast" id="daishiToast" role="status" aria-live="polite"></div>
+
+<button class="daishi-top-btn" id="daishiTopBtn" type="button" aria-label="回到顶部">
+  <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 5l8 8h-5v6H9v-6H4z"/></svg>
+</button>
+
+<script>
+(function(){
+  "use strict";
+
+  var toastEl = document.getElementById('daishiToast');
+  var toastTimer = null;
+  function showToast(msg){
+    if(!toastEl) return;
+    toastEl.textContent = msg;
+    toastEl.classList.add('is-show');
+    clearTimeout(toastTimer);
+    toastTimer = setTimeout(function(){ toastEl.classList.remove('is-show'); }, 2200);
+  }
+
+  /* 移动端导航 */
+  var burger = document.getElementById('daishiBurger');
+  var nav = document.getElementById('daishiNav');
+  if(burger && nav){
+    burger.addEventListener('click', function(){
+      var open = nav.classList.toggle('is-open');
+      burger.classList.toggle('is-open', open);
+      burger.setAttribute('aria-expanded', open ? 'true' : 'false');
+      burger.setAttribute('aria-label', open ? '收起导航菜单' : '展开导航菜单');
+    });
+    nav.addEventListener('click', function(e){
+      if(e.target.tagName === 'A' && nav.classList.contains('is-open')){
+        nav.classList.remove('is-open');
+        burger.classList.remove('is-open');
+        burger.setAttribute('aria-expanded','false');
+      }
+    });
+  }
+
+  /* 搜索反馈 */
+  var searchForm = document.getElementById('daishiSearchForm');
+  var searchInput = document.getElementById('daishiSearchInput');
+  var feedback = document.getElementById('daishiSearchFeedback');
+  var feedbackTimer = null;
+  function showSearchFeedback(msg){
+    if(!feedback) return;
+    feedback.textContent = msg;
+    feedback.classList.add('is-show');
+    clearTimeout(feedbackTimer);
+    feedbackTimer = setTimeout(function(){ feedback.classList.remove('is-show'); }, 2600);
+  }
+  var feedCards = Array.prototype.slice.call(document.querySelectorAll('#daishiFeedGrid .daishi-video-card'));
+  if(searchForm && searchInput){
+    searchForm.addEventListener('submit', function(e){
+      e.preventDefault();
+      var kw = searchInput.value.trim();
+      if(!kw){
+        showSearchFeedback('请输入大赛名称、赛道或爆料关键词');
+        searchInput.focus();
+        return;
+      }
+      var hits = feedCards.filter(function(c){
+        return c.textContent.indexOf(kw) > -1;
+      });
+      if(hits.length){
+        showSearchFeedback('已找到 ' + hits.length + ' 条与“' + kw + '”相关的爆料');
+        var target = document.getElementById('daishiFeed');
+        if(target){ target.scrollIntoView({behavior:'smooth', block:'start'}); }
+        hits.forEach(function(c){ c.classList.remove('is-hidden'); });
+      }else{
+        showSearchFeedback('暂未找到“' + kw + '”相关爆料，可尝试投稿爆料');
+      }
+    });
+  }
+
+  /* 标签筛选 */
+  var chips = Array.prototype.slice.call(document.querySelectorAll('.daishi-chip'));
+  chips.forEach(function(chip){
+    chip.addEventListener('click', function(){
+      chips.forEach(function(c){ c.classList.remove('is-active'); });
+      chip.classList.add('is-active');
+      var cat = chip.getAttribute('data-daishi-filter');
+      feedCards.forEach(function(card){
+        if(cat === 'all' || card.getAttribute('data-daishi-cat') === cat){
+          card.classList.remove('is-hidden');
+        }else{
+          card.classList.add('is-hidden');
+        }
+      });
+      showToast('已筛选：' + chip.textContent.trim());
+    });
+  });
+
+  /* 点赞 */
+  document.addEventListener('click', function(e){
+    var likeBtn = e.target.closest('[data-daishi-like]');
+    if(likeBtn){
+      e.preventDefault();
+      var span = likeBtn.querySelector('span');
+      var num = span ? parseInt(span.textContent.replace(/,/g,''), 10) : 0;
+      var liked = likeBtn.classList.toggle('is-liked');
+      var next = liked ? num + 1 : Math.max(0, num - 1);
+      if(span){ span.textContent = next.toLocaleString('en-US'); }
+      showToast(liked ? '已点赞这条爆料' : '已取消点赞');
+      return;
+    }
+    var saveBtn = e.target.closest('[data-daishi-save]');
+    if(saveBtn){
+      e.preventDefault();
+      var saved = saveBtn.classList.toggle('is-saved');
+      var txt = saveBtn.querySelector('span');
+      if(txt){ txt.textContent = saved ? '已收藏' : '收藏'; }
+      showToast(saved ? '已加入收藏' : '已取消收藏');
+    }
+  });
+
+  /* 弹窗 */
+  var mask = document.getElementById('daishiModalMask');
+  var modalTitle = document.getElementById('daishiModalTitle');
+  var modalDesc = document.getElementById('daishiModalDesc');
+  var submitForm = document.getElementById('daishiSubmitForm');
+  var lastFocus = null;
+  var modalContent = {
+    submit: {
+      title: '我要投稿爆料',
+      desc: '留下线索，编辑会在 2 小时内与你联系。请勿提交未经核实的人身攻击内容。'
+    },
+    author: {
+      title: '爆料人档案',
+      desc: '这位爆料人长期活跃在赛事现场。查看完整档案与爆料合集，可关注其后续更新。'
+    },
+    contact: {
+      title: '联系与合作',
+      desc: '赛事主办方、品牌与创作者均可联系我们。工作时间每日 09:00 - 22:00。'
+    }
+  };
+  function openModal(type, authorName){
+    if(!mask) return;
+    var conf = modalContent[type] || modalContent.submit;
+    if(modalTitle){ modalTitle.textContent = (type === 'author' && authorName) ? (authorName + ' · 档案') : conf.title; }
+    if(modalDesc){ modalDesc.textContent = conf.desc; }
+    if(submitForm){ submitForm.style.display = (type === 'submit') ? 'grid' : 'none'; }
+    lastFocus = document.activeElement;
+    mask.classList.add('is-show');
+    mask.setAttribute('aria-hidden','false');
+    var firstInput = submitForm ? submitForm.querySelector('input') : null;
+    if(firstInput && type === 'submit'){ setTimeout(function(){ firstInput.focus(); }, 120); }
+  }
+  function closeModal(){
+    if(!mask) return;
+    mask.classList.remove('is-show');
+    mask.setAttribute('aria-hidden','true');
+    if(lastFocus && lastFocus.focus){ lastFocus.focus(); }
+  }
+  document.addEventListener('click', function(e){
+    var opener = e.target.closest('[data-daishi-open]');
+    if(opener){
+      e.preventDefault();
+      openModal(opener.getAttribute('data-daishi-open'), opener.getAttribute('data-daishi-author'));
+    }
+  });
+  var closeBtn = document.getElementById('daishiModalClose');
+  var cancelBtn = document.getElementById('daishiModalCancel');
+  if(closeBtn){ closeBtn.addEventListener('click', closeModal); }
+  if(cancelBtn){ cancelBtn.addEventListener('click', closeModal); }
+  if(mask){
+    mask.addEventListener('click', function(e){
+      if(e.target === mask){ closeModal(); }
+    });
+  }
+  document.addEventListener('keydown', function(e){
+    if(e.key === 'Escape' && mask && mask.classList.contains('is-show')){ closeModal(); }
+  });
+  var submitBtn = document.getElementById('daishiModalSubmit');
+  if(submitBtn){
+    submitBtn.addEventListener('click', function(){
+      var nameEl = document.getElementById('daishiFormName');
+      var contactEl = document.getElementById('daishiFormContact');
+      var msgEl = document.getElementById('daishiFormMsg');
+      var name = nameEl ? nameEl.value.trim() : '';
+      var contact = contactEl ? contactEl.value.trim() : '';
+      var msg = msgEl ? msgEl.value.trim() : '';
+      if(!name || !contact || !msg){
+        showToast('请完整填写昵称、联系方式与事件描述');
+        return;
+      }
+      closeModal();
+      showToast('投稿已提交，编辑将在 2 小时内联系你');
+      if(nameEl){ nameEl.value = ''; }
+      if(contactEl){ contactEl.value = ''; }
+      if(msgEl){ msgEl.value = ''; }
+    });
+  }
+
+  /* 回到顶部 */
+  var topBtn = document.getElementById('daishiTopBtn');
+  if(topBtn){
+    topBtn.addEventListener('click', function(){
+      window.scrollTo({top:0, behavior:'smooth'});
+    });
+    window.addEventListener('scroll', function(){
+      if(window.scrollY > 500){
+        topBtn.classList.add('is-show');
+      }else{
+        topBtn.classList.remove('is-show');
+      }
+    }, {passive:true});
+  }
+
+  /* 公告条无缝滚动：复制一份列表 */
+  var bulletinList = document.getElementById('daishiBulletinList');
+  if(bulletinList){
+    bulletinList.innerHTML = bulletinList.innerHTML + bulletinList.innerHTML;
+  }
+})();
+</script>
+</body>
+          </html>
